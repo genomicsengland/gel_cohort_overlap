@@ -27,7 +27,6 @@ def get_data(query: str) -> list:
         {column: value for column, value in rowproxy.items()}
         for rowproxy in resultproxy
     ]
-    print(df_dict)
     return df_dict
     
 def format_data(data: list) -> dict:
