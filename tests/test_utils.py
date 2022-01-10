@@ -4,14 +4,16 @@ from sqlalchemy import create_engine
 import csv
 from utils import utils
 import hashlib
-
+import pathlib
 
 class TestHashUtils:
 
     @pytest.fixture()
     def target_data(self):        
         gel_id = 1
-        with open('/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/PMI Dev/UK Biobank/gel.txt') as f:
+        cpath = str(pathlib.Path(__file__).parent.resolve())
+        test_path = cpath + '/setup/gel.txt'
+        with open(test_path) as f:
             test_reader = csv.reader(f, delimiter='\t')
             test_data = []
             for data in test_reader:
