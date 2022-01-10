@@ -16,7 +16,7 @@ The purpose of this repo is to :
 
 ## DotEnv
 
-* A **.env** file (part of gitignore, so is local to the running machine) is required in the root of the repo. The structure of this file is available in the *dotenv* file
+* A **.env** file (part of gitignore, so is local to the running machine) is required in the root of the repo. The structure of this file is available in the *dotenv.tmpl* file
 
 ## Usage
 
