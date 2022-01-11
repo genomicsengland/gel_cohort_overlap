@@ -1,10 +1,15 @@
 import logging
 import pytest
-from sqlalchemy import create_engine
 import csv
-from utils import utils
 import hashlib
 import pathlib
+import os
+from dotenv import load_dotenv
+from utils import utils
+from sqlalchemy import create_engine
+
+basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir,'..', '.env'))
 
 class TestHashUtils:
 
@@ -83,7 +88,7 @@ class TestHashUtils:
 
     def test_generate_hash(self, target_data):
         """Checks the hashing algorithm is working as expected."""
-        salt = 'dDf2cn9KXp4Js7nw'
+        salt = os.environ.get('SALT')
         gel_hashes = utils.generate_hash(target_data, salt)
         
         expected_hashes = [x['hash'] for x in target_data]
